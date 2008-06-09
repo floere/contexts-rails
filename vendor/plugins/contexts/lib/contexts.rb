@@ -30,7 +30,7 @@ module Contexts
       if block_given?
         define_method "determine_context_type_for_#{category}", &block
       else
-        raise 'Context without a block needs at least a default type. Use e.g. context :navigation, :profile' unless default
+        raise 'Context without a block needs at least a default type. Use context :navigation, :profile' unless default
         if specifics.empty?
           define_method "determine_context_type_for_#{category}" do
             default
@@ -55,8 +55,10 @@ module Contexts
     #
     def load_context(category, type, options = {}, &block)
       type_method_name_part = Context.methodify(type)
-      define_method "cache_context_for_#{category}_#{type_method_name_part}?" do
-        options[:cache]
+      if options[:cache]
+        define_method "context_cache_duration_for_#{category}_#{type_method_name_part}" do
+          options[:cache]
+        end
       end
       define_method "load_context_data_for_#{category}_#{type_method_name_part}" do |view_instance|
         view_instance.instance_eval(&block)
