@@ -1,0 +1,7 @@
+%h1 Ein tolles Mitglied
+
+Dieses Mitglied mag:
+%ul
+  - @recipes.each do |recipe|
+    %li
+      = link_to recipe.name, :controller => 'recipes', :action => :show

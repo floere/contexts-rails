@@ -1,0 +1,5 @@
+%h2 Rezepte, die Dir gefallen könnten:
+%ul
+  - @random_recipes.each do |random_recipe|
+    %li
+      = link_to random_recipe.name, :controller => :recipes, :action => :show

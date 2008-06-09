@@ -1,0 +1,5 @@
+%h2 zufällig ausgewählte Mitglieder:
+%ul
+  - @random_members.each do |random_member|
+    %li
+      = link_to random_member.name, :controller => :members, :action => :show

@@ -1,0 +1,15 @@
+!!! XML
+!!!
+%html{:xmlns => "http://www.w3.org/1999/xhtml"}
+  %head
+    = stylesheet_link_tag :all
+  %body
+    #header
+      %h1 rezepte.de
+    #explore
+      %h1 Entdecke…
+      = render_context :explore
+    #content
+      = yield
+    #menu
+      = render_context :navigation

@@ -1,0 +1,6 @@
+%h1 Mitgliederliste
+
+%ol
+  - @members.each do |member|
+    %li
+      = link_to member.name, :action => :show

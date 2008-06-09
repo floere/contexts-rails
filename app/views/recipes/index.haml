@@ -1,0 +1,6 @@
+%h1 Rezeptliste
+
+%ol
+  - @recipes.each do |recipe|
+    %li
+      = link_to recipe.name, :action => :show
