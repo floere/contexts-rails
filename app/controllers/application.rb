@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
   context :navigation, :member_with_ad
   
   # loading contexts
-  load_context :explore, :random_members, :cache => 5.seconds do
+  load_context :explore, :random_members, :cache => 5.minutes do
     @random_members = Member.random(10)
   end
   load_context :explore, :random_recipes do
