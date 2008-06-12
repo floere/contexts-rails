@@ -1,6 +1,15 @@
 class RecipesController < ApplicationController
   
-  context :explore, :random_recipes
+  context :explore, :random_recipes,
+    :index => :random_members
+    
+    
+    
+    
+    
+    
+    
+    
   context :navigation, :member_with_ad
   
   def index
